@@ -1,0 +1,59 @@
+.wrapper{
+	width: 100%;
+}
+
+h1{
+	font-size: 48px;
+	line-height: 52px;
+	text-align: center;
+	margin-bottom: 28px;
+}
+a{
+	text-decoration: none;
+	color: #000;
+	-webkit-transition: all .1s ease;
+	&:hover{
+		color: red;
+	}
+}
+.wrapper.header{
+	background-color: #1d2128;
+	header{
+		width: 700px;
+		margin: 0 auto;
+		color: white;
+		.name{
+			margin: 0 auto;
+			letter-spacing: 2px;
+			font-size: 12px;
+			padding: 17px 0;
+			color: #ddd;
+			font-family: Georgia;
+			text-transform: uppercase;
+			float: left;
+			cursor: default;
+			a{
+				color: #ddd;
+				&:hover{
+					color: #ff3f3f;
+				}
+			}
+		}
+		nav{
+			float: left;
+			display: block;
+			padding-top: 11px;
+			padding-left: 30px;
+			a{
+				color: #aaa;
+				line-height: 24px;
+				font-size: 13px;
+				font-family: Georgia;
+				padding: 0 10px;
+				&:hover{
+					color: #ff3f3f;
+				}
+			}
+		}
+	}
+}

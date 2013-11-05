@@ -1,0 +1,110 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.post{
+	-webkit-animation: post-appear 1s 1;
+}
+article{
+	width: 700px;
+	margin: 0 auto;
+	padding: 30px 0;
+	header{
+		position: relative;
+		time{
+			font-size: 11px;
+			text-transform: uppercase;
+			text-align: center;
+			display: block;
+			margin-bottom: 50px;
+			position: relative;
+			background-color: white;
+			letter-spacing: 2px;
+			&:after, &:before{
+				content: '';
+				width: 280px;
+				height: 1px;
+				background-color: #ddd;
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 7px;
+			}
+			&:after{
+				left: 0;
+			}
+		}
+		.edit-link{
+			border: 1px solid #ddd;
+			padding: 2px 15px 2px;
+			position: absolute;
+			background-color: #fff;
+			right: 0;
+			border-radius: 20px;
+			font-size: 12px;
+			bottom: -4px;
+		}
+		.edit-link:hover{
+			background-color: red;
+			color: #fff;
+			border-color: red;
+		}
+	}
+	
+	section{
+		font-family: Georgia;
+		font-size: 22px;
+		line-height: 32px;
+	}
+	footer{
+		.tags-list{
+			.tag{
+				font-size: 12px;
+				font-family: Georgia;
+				padding: 3px 6px;
+				font-style: italic;
+			}
+		}
+	}
+}
+
+.edit{
+	width: 700px;
+	margin: 0 auto;
+	padding-top: 30px;
+	.field{
+		#post_title{
+			font-size: 48px;
+			font-weight: bold;
+			width: 700px;
+			border: none;
+			outline: none;
+			margin-bottom: 20px;
+		}
+		#post_body{
+			font-family: Georgia;
+			font-size: 20px;
+			line-height: 30px;
+			width: 700px;
+			height: 430px;
+			border: none;
+			outline: none;
+			margin-bottom: 20px;
+		}
+	}
+	input[type="submit"]{
+		border-radius: 3px;
+		background-color: #000;
+		color: #fff;
+		border: none;
+		padding: 10px 20px;
+		margin-left: 3px;
+	}
+	input[type="submit"]:hover{
+		background-color: red;
+	}
+}
+
+@-webkit-keyframes post-appear {
+  0%, 30%   { opacity: 0; padding-top: 10px }
+  100% { opacity: 1; padding-top: 0px}
+}
