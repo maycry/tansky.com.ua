@@ -13,7 +13,11 @@
     <nav>
       <a href="#">Работы</a>
       <a href="#">Об авторе</a>
+      <%= link_to('Выйти', logout_path, class: 'logout') if logged%>
+      <%= link_to('Новый', new_post_path, class: 'logout') if logged%>
     </nav>
+    <div class="admin">
+    </div>
   </header>
 </div>
 <%= yield %>

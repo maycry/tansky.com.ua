@@ -1,7 +1,18 @@
+input[type='password']{
+	width: 100%;
+	border-radius: 3px;
+	border: none;
+	border: 1px solid #ccc;
+	font-size: 18px;
+	line-height: 32px;
+	padding: 5px 10px;
+	ouline: none;
+	margin-bottom: 20px;
+}
+
 .wrapper{
 	width: 100%;
 }
-
 h1{
 	font-size: 48px;
 	line-height: 52px;
@@ -18,6 +29,7 @@ a{
 }
 .wrapper.header{
 	background-color: #1d2128;
+	margin-bottom: 10px;
 	header{
 		width: 700px;
 		margin: 0 auto;
@@ -44,6 +56,7 @@ a{
 			display: block;
 			padding-top: 11px;
 			padding-left: 30px;
+			width: 572px;
 			a{
 				color: #aaa;
 				line-height: 24px;
@@ -52,6 +65,13 @@ a{
 				padding: 0 10px;
 				&:hover{
 					color: #ff3f3f;
+				}
+				&.logout{
+					float: right;
+					color: #777;
+					&:hover{
+						color: #ff3f3f;
+					}
 				}
 			}
 		}

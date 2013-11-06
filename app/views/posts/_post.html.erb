@@ -2,9 +2,9 @@
   <header>
     <h1><%= link_to_unless_current post.title, post %></h1>
     <time>28 ноября 2013</time>
-    <%= link_to 'Edit', edit_post_path(post), class: 'edit-link' %>
+    <%= link_to('Edit', edit_post_path(post), class: 'edit-link') if logged %>
   </header>
-  <section><%= post.body %></section>
+  <section><%= markdown post.body %></section>
 <!--     <footer>
     <div class="tags-list">
       <span class="tag">Дизайн</span>

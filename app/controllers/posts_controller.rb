@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate, only: [:edit, :update, :new, :create]
 
   # GET /posts
   # GET /posts.json
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
   end
   
   def new
-    @post = post.new
+    @post = Post.new
   end
 
   
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = post.new(post_params)
+    @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -59,6 +60,7 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -68,5 +70,19 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body)
+    end
+
+    def authenticate(return_point = request.url)
+      unless session[:log_in]
+        flash[:error] = "You must be logged in to access this section"
+        set_return_point(return_point)
+        redirect_to login_path
+      end
+    end
+
+    def set_return_point(path, overwrite = false)
+      if overwrite or session[:return_point].blank?
+        session[:return_point] = path
+      end
     end
 end
