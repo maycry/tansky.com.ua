@@ -98,9 +98,17 @@ article{
 		border: none;
 		padding: 10px 20px;
 		margin-left: 3px;
+		float: left;
 	}
 	input[type="submit"]:hover{
 		background-color: red;
+	}
+	.delete-post{
+		display: block;
+		float: right;
+		font-size: 12px;
+		margin-top: 15px;
+		color: #aaa;
 	}
 }
 

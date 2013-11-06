@@ -1,1 +1,4 @@
-<%= render 'form' %>
+<div class="edit">
+	<%= render 'form' %>
+	<%= link_to 'Удалить', @post, method: :delete, data: { confirm: 'Точно?' }, class: 'delete-post' %>
+</div>
