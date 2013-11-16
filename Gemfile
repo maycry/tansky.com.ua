@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.1.2', :require => "bcrypt"
 gem 'aws-sdk', '~> 1.25.0'
 gem "jquery-fileupload-rails"
+gem 'acts-as-taggable-on', '~> 2.4.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

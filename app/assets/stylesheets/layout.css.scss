@@ -1,4 +1,10 @@
 /* @import "http://webfonts.ru/import/orpheus.css"; */
+@font-face {
+  font-family: 'Futura PT';    
+  src: url('/assets/futura.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 input[type='password']{
 	width: 100%;
@@ -16,13 +22,16 @@ input[type='password']{
 	width: 100%;
 }
 h1{
-	font-size: 48px;
-	line-height: 52px;
+	font-size: 24px;
+	line-height: 28px;
 	text-align: center;
-	margin-bottom: 28px;
+	margin: 0;
+	margin-top: 10px;
+	margin-bottom: 30px;
 /* 	font-family: 'Orpheus';
 	font-weight: normal;
 	font-style: normal; */
+	font-family: 'Futura PT';
 }
 a{
 	text-decoration: none;
@@ -33,40 +42,34 @@ a{
 	}
 }
 .wrapper.header{
-	background-color: #1d2128;
-	margin-bottom: 10px;
 	header{
-		width: 700px;
-		margin: 0 auto;
-		color: white;
+		padding: 10px;
 		.name{
 			margin: 0 auto;
+			font-family: 'Futura PT';
 			letter-spacing: 2px;
 			font-size: 12px;
-			padding: 17px 0;
-			color: #ddd;
-			font-family: Georgia;
+			color: #888;
 			text-transform: uppercase;
 			float: left;
 			cursor: default;
 			a{
-				color: #ddd;
+				color: #888;
 				&:hover{
 					color: #ff3f3f;
 				}
 			}
 		}
 		nav{
-			float: left;
+			float: right;
 			display: block;
-			padding-top: 11px;
 			padding-left: 30px;
-			width: 572px;
+			margin-top: -5px;
 			a{
 				color: #aaa;
 				line-height: 24px;
-				font-size: 13px;
-				font-family: Georgia;
+				font-size: 12px;
+				font-family: Helvetica;
 				padding: 0 10px;
 				&:hover{
 					color: #ff3f3f;
