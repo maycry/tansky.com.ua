@@ -1,0 +1,2 @@
+$("#thumbs").append("<%= j render 'photo' %>")
+$("#post_body").append('\n<%= "![#{File.basename(@name, ".*")}](https://s3.amazonaws.com/tansky.com.ua/blog/#{@post.id}/#{@name})" %>\n')

@@ -27,29 +27,58 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'post was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @post }
+      if params[:post][:image_attributes]
+        @post.save
+        @name = params[:post][:image_attributes][:image][0].original_filename
+        s3 = AWS::S3.new
+        bucket = s3.buckets["tansky.com.ua"]
+        obj = bucket.objects["blog/#{@post.id}/#{@name}"]
+        obj.write(params[:post][:image_attributes][:image][0].read, :acl => :public_read)
       else
-        format.html { render action: 'new' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        if @post.save
+          format.html { redirect_to posts_url }
+          format.json { render action: 'show', status: :created, location: @post }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  end
+
+
+
+
+  def update
+    respond_to do |format|
+      if params[:post][:image_attributes]
+        @name = params[:post][:image_attributes][:image][0].original_filename
+        s3 = AWS::S3.new
+        bucket = s3.buckets["tansky.com.ua"]
+        obj = bucket.objects["blog/#{@post.id}/#{@name}"]
+        obj.write(params[:post][:image_attributes][:image][0].read, :acl => :public_read)
+        format.js
+      else
+        if @post.update(post_params)
+          format.html { redirect_to @post, notice: 'post was successfully updated.' }
+        end
       end
     end
   end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
-  def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #def update
+  #  respond_to do |format|
+  #    if @post.update(post_params)
+  #      format.html { redirect_to @post, notice: 'post was successfully updated.' }
+  #      format.json { head :no_content }
+  #    else
+  #      format.html { render action: 'edit' }
+  #      format.json { render json: @post.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   # DELETE /posts/1
   # DELETE /posts/1.json

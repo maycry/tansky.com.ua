@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, multipart: true) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -17,6 +17,10 @@
   <div class="field">
     <%= f.text_area :body%>
   </div>
+  <div class="field">
+    <%= f.file_field :image_attributes, :multiple => true, :name => "post[image_attributes][image][]" %>
+  </div>
+  <div id="thumbs"></div>
   <div class="actions">
     <%= f.submit %>
   </div>
