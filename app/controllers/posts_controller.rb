@@ -5,7 +5,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:tag]
+        @posts = Post.tagged_with(params[:tag])
+      else
+        @posts = Post.all
+      end
   end
 
   # GET /posts/1
@@ -20,6 +24,7 @@ class PostsController < ApplicationController
   
   # GET /posts/1/edit
   def edit
+    @tags = Post.tag_counts_on(:tags)
   end
   # POST /posts
   # POST /posts.json
@@ -98,7 +103,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :tag_list)
     end
 
     def authenticate(return_point = request.url)

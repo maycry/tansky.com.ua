@@ -10,37 +10,31 @@ article{
 	padding: 35px 0 20px;
 	header{
 		position: relative;
+		.top{
+			text-align: center;
+		}
 		time{
+			color: #aaa;
 			font-size: 10px;
 			letter-spacing: 1px;
 			font-family: Helvetica;
-			text-align: center;
-			display: block;
-			position: relative;
-			background-color: white;
-			color: #aaa;
 			margin-bottom: 0px;
 			text-transform: uppercase;
 		}
-		time:after, time:before{
+		time:after, time:before, .edit-link:after{
 			content: "·";
 			margin: 0 7px;
 			color: #ccc;
 		}
 		.edit-link{
-			border: 1px solid #ddd;
-			padding: 2px 15px 2px;
-			position: absolute;
+			font-family: Helvetica;
+			color: #aaa;
 			background-color: #fff;
-			right: 0;
-			border-radius: 20px;
-			font-size: 12px;
-			bottom: -4px;
+			font-size: 10px;
+			text-transform: uppercase;
 		}
 		.edit-link:hover{
-			background-color: red;
-			color: #fff;
-			border-color: red;
+			color: red;
 		}
 	}
 	
@@ -75,7 +69,8 @@ article{
 	padding-top: 30px;
 	.field{
 		#post_title{
-			font-size: 48px;
+			font-family: 'Futura PT';
+			font-size: 24px;
 			font-weight: bold;
 			width: 700px;
 			border: none;
@@ -84,14 +79,41 @@ article{
 		}
 		#post_body{
 			font-family: Georgia;
-			font-size: 20px;
-			line-height: 30px;
+			font-size: 16px;
+			line-height: 24px;
 			width: 700px;
-			height: 430px;
+			height: 350px;
 			border: none;
 			outline: none;
 			margin-bottom: 20px;
 		}
+		#post_tag_list{
+			font-family: Georgia;
+			font-size: 13px;
+			line-height: 20px;
+			border: none;
+			outline: none;
+			margin-top: 20px;
+		}
+		&.tags{
+			label{
+				font-family: Georgia;
+				font-size: 13px;
+				line-height: 20px;
+				border: none;
+				outline: none;
+				color: #888;
+			}
+		}
+	}
+	.tags_list{
+		font-family: Georgia;
+		font-size: 13px;
+		line-height: 20px;
+		border: none;
+		outline: none;
+		margin-bottom: 20px;
+		color: #888;
 	}
 	input[type="submit"]{
 		border-radius: 3px;

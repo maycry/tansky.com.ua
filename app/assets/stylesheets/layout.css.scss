@@ -74,11 +74,17 @@ a{
 				&:hover{
 					color: #ff3f3f;
 				}
-				&.logout{
-					float: right;
-					color: #777;
-					&:hover{
-						color: #ff3f3f;
+				&.separate{ 
+					position: relative;
+					margin-left: 20px;
+					&:before{
+						content: "·";
+						margin: 0 15px;
+						color: #ccc;
+						position: absolute;
+						display: block;
+						top: -4px;
+						left: -29px;
 					}
 				}
 			}

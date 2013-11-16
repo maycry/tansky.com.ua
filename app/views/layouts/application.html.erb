@@ -11,10 +11,10 @@
   <header class="clr">
     <div class="name"><%= link_to_unless_current 'Танский Юрий', root_path %></div>
     <nav>
-      <a href="#">Работы</a>
-      <a href="#">Об авторе</a>
-      <%= link_to('Выйти', logout_path, class: 'logout') if logged%>
-      <%= link_to('Новый', new_post_path, class: 'logout', "data-no-turbolink" => "") if logged%>
+      <a href="/tags/работы">Работы</a>
+      <a href="/tags/автор">Об авторе</a>
+      <%= link_to('Новый', new_post_path, class: 'separate', "data-no-turbolink" => "") if logged%>
+      <%= link_to('Выйти', logout_path) if logged%>
     </nav>
     <div class="admin">
     </div>

@@ -21,6 +21,15 @@
     <%= f.file_field :image_attributes, :multiple => true, :name => "post[image_attributes][image][]" %>
   </div>
   <div id="thumbs"></div>
+  <div class="field tags">
+    <%= f.label :tag_list, "Теги: " %>
+    <%= f.text_field :tag_list %>
+  </div>
+  <div class="tags_list">
+    <% @tags.each do |tag|%>
+    <%= tag.name%>
+    <%end%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

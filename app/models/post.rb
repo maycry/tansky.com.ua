@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
 	before_save :add_title
+	acts_as_taggable
 
 	default_scope { order("created_at desc") }
 
