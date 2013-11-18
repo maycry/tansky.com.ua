@@ -1,7 +1,7 @@
 <article>
   <header>
-    <div class="top"><time>28 ноября 2013</time><%= link_to('Edit', edit_post_path(post), class: 'edit-link', "data-no-turbolink" => "") if logged %></div>
     <h1><%= link_to_unless_current post.title, post %></h1>
+    <div class="top"><time>28 ноября 2013</time><%= link_to('Edit', edit_post_path(post), class: 'edit-link', "data-no-turbolink" => "") if logged %></div>
   </header>
   <section><%= markdown post.body %></section>
 <!--     <footer>

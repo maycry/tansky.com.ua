@@ -25,11 +25,13 @@
     <%= f.label :tag_list, "Теги: " %>
     <%= f.text_field :tag_list %>
   </div>
+  <% if @tags%>
   <div class="tags_list">
     <% @tags.each do |tag|%>
     <%= tag.name%>
     <%end%>
   </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

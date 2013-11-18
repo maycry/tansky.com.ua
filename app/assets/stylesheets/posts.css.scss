@@ -13,39 +13,55 @@ article{
 		.top{
 			text-align: center;
 		}
-		time{
-			color: #aaa;
-			font-size: 10px;
-			letter-spacing: 1px;
-			font-family: Helvetica;
+		time, .edit-link{
+			font-size: 14px;
+			font-family: Garamond;
 			margin-bottom: 0px;
-			text-transform: uppercase;
+			font-style: italic;
+			color: #666;
 		}
-		time:after, time:before, .edit-link:after{
+/* 		time:after, time:before, .edit-link:after{
 			content: "·";
 			margin: 0 7px;
 			color: #ccc;
-		}
-		.edit-link{
-			font-family: Helvetica;
-			color: #aaa;
-			background-color: #fff;
-			font-size: 10px;
-			text-transform: uppercase;
+		} */
+		.edit-link:before{
+			content: "· ";
+
 		}
 		.edit-link:hover{
 			color: red;
+		}
+		.edit-link:hover:before{
+			content: "· ";
+			color: #666;
 		}
 	}
 	
 	section{
 		width: 580px;
-		margin: 0 auto;
+		margin: 20px auto 0;
+		ul{
+			padding: 0 0 0 50px;
+			li{
+				position: relative;
+			}
+			li:before{
+				content: '—';
+				position: absolute;
+				left: -22px;
+				top: 1px;
+			}
+		}
 		p{
 			font-family: Georgia;
 			font-size: 17px;
-			line-height: 26px;
-			margin: 14px 0; 
+			line-height: 29px;
+			margin: 0px 0; 
+			text-indent: 29px;
+		}
+		p:first-child{
+			text-indent: 0;
 		}
 		img{
 			max-width: 700px;

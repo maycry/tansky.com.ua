@@ -2,6 +2,12 @@
 @font-face {
   font-family: 'Futura PT';    
   src: url('/assets/futura.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Futura PT';    
+  src: url('/assets/futura-normal.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,12 +28,13 @@ input[type='password']{
 	width: 100%;
 }
 h1{
-	font-size: 24px;
+	font-size: 26px;
 	line-height: 28px;
 	text-align: center;
 	margin: 0;
 	margin-top: 10px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
+	font-weight: normal;
 /* 	font-family: 'Orpheus';
 	font-weight: normal;
 	font-style: normal; */
@@ -47,12 +54,14 @@ a{
 		.name{
 			margin: 0 auto;
 			font-family: 'Futura PT';
-			letter-spacing: 2px;
+			letter-spacing: 1px;
 			font-size: 12px;
 			color: #888;
 			text-transform: uppercase;
 			float: left;
 			cursor: default;
+			font-weight: bold;
+			line-height: 14px;
 			a{
 				color: #888;
 				&:hover{
@@ -64,13 +73,15 @@ a{
 			float: right;
 			display: block;
 			padding-left: 30px;
-			margin-top: -5px;
+			margin-top: -9px;
 			a{
 				color: #aaa;
 				line-height: 24px;
-				font-size: 12px;
+				font-size: 13px;
 				font-family: Helvetica;
 				padding: 0 10px;
+				font-family: 'Futura PT';
+				font-weight: normal;
 				&:hover{
 					color: #ff3f3f;
 				}
