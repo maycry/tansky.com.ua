@@ -42,14 +42,14 @@ article{
 		width: 580px;
 		margin: 20px auto 0;
 		ul{
-			padding: 0 0 0 50px;
+			padding: 0 0 10px 29px;
 			li{
 				position: relative;
 			}
 			li:before{
 				content: '—';
 				position: absolute;
-				left: -22px;
+				left: -27px;
 				top: 1px;
 			}
 		}
