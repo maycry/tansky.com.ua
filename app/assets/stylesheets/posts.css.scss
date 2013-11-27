@@ -59,13 +59,15 @@ article{
 			line-height: 29px;
 			margin: 0px 0; 
 			text-indent: 29px;
+			img{
+				max-width: 580px;
+				margin-left: -29px;
+			}
 		}
 		p:first-child{
 			text-indent: 0;
 		}
-		img{
-			max-width: 700px;
-		}
+		
 	}
 	footer{
 		.tags-list{
