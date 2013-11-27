@@ -38,7 +38,7 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
+gem 'russian', '~> 0.6.0'
 gem 'rails_12factor', group: :production
 
 ruby "2.0.0"
