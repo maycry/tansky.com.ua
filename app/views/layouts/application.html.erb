@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title)%>Блог Танского Юры</title>
+  <title><%= yield(:title)%>Блог Юры Танского</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +9,7 @@
 <body>
 <div class="wrapper header clr">
   <header class="clr">
-    <div class="name"><%= link_to_unless_current 'Танский Юра', root_path %></div>
+    <div class="name"><%= link_to_unless_current 'Юра Танский', root_path %></div>
     <nav>
       <a href="/tags/работы">Работы</a>
       <a href="/tags/автор">Об авторе</a>
