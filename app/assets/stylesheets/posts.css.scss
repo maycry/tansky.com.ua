@@ -26,14 +26,14 @@ article{
 			color: #ccc;
 		} */
 		.edit-link:before{
-			content: "· ";
+			content: " · ";
 
 		}
 		.edit-link:hover{
 			color: red;
 		}
 		.edit-link:hover:before{
-			content: "· ";
+			content: " · ";
 			color: #666;
 		}
 	}
