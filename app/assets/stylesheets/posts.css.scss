@@ -14,8 +14,8 @@ article{
 			text-align: center;
 		}
 		time, .edit-link{
-			font-size: 14px;
-			font-family: Garamond;
+			font-size: 13px;
+			font-family: Georgia;
 			margin-bottom: 0px;
 			font-style: italic;
 			color: #666;
@@ -59,9 +59,32 @@ article{
 			line-height: 29px;
 			margin: 0px 0; 
 			text-indent: 29px;
+		}
+		figure{
+			position: relative;
 			img{
 				max-width: 580px;
-				margin-left: -29px;
+			}
+			figcaption{
+				position: absolute;
+				top: 0;
+				width: 160px;
+				right: -160px;
+				margin-right: -29px;
+				font-size: 12px;
+				line-height: 16px;
+				font-style: italic;
+				color: #aaa;
+				display: block;
+				font-family: Georgia;
+				&:before{
+					content: "";
+					width: 40px;
+					height: 1px;
+					background-color: #ddd;
+					display: block;
+					margin-bottom: 13px;
+				}
 			}
 		}
 		p:first-child{

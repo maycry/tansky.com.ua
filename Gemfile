@@ -40,6 +40,7 @@ group :doc do
 end
 gem 'russian', '~> 0.6.0'
 gem 'rails_12factor', group: :production
+gem 'nokogiri'
 
 ruby "2.0.0"
 
