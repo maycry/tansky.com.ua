@@ -11,6 +11,9 @@
   font-weight: normal;
   font-style: normal;
 }
+html,body {
+	height: 100%;
+}
 
 input[type='password']{
 	width: 100%;
@@ -48,7 +51,7 @@ a{
 		color: red;
 	}
 }
-.wrapper.header{
+.wrapper .header{
 	header{
 		padding: 10px;
 		background: -moz-linear-gradient(top, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
@@ -109,6 +112,30 @@ a{
 		}
 	}
 }
-.wrapper.content{
-	padding-bottom: 100px;
+.wrapper{
+	min-height: 100%;
+	&:after{
+		content: "";
+		clear: both;
+		display: block;
+		height: 100px;
+	}
+}
+.footer{
+	padding: 0 10px;
+	height: 30px;
+	font-family: 'Futura PT';
+	font-size: 13px;
+	margin-top: -30px;
+	a{
+		color: #aaa;
+		margin-right: 20px;
+		&:hover{
+			color: red;
+		}
+	}
+	span{
+		float: right;
+		color: #aaa;
+	}
 }

@@ -7,20 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="wrapper header clr">
-  <header class="clr">
-    <div class="name"><%= link_to_unless_current 'Юра Танский', root_path %></div>
-    <nav>
-      <a href="/tags/работы">Работы</a>
-      <a href="/tags/автор">Об авторе</a>
-      <%= link_to('Новый', new_post_path, class: 'separate', "data-no-turbolink" => "") if logged%>
-      <%= link_to('Выйти', logout_path) if logged%>
-    </nav>
-    <div class="admin">
-    </div>
-  </header>
+<div class="wrapper">
+  <div class="header clr">
+    <header class="clr">
+      <div class="name"><%= link_to_unless_current 'Юра Танский', root_path %></div>
+      <nav>
+        <a href="/tags/работы">Работы</a>
+        <a href="/tags/автор">Об авторе</a>
+        <%= link_to('Новый', new_post_path, class: 'separate', "data-no-turbolink" => "") if logged%>
+        <%= link_to('Выйти', logout_path) if logged%>
+      </nav>
+      <div class="admin">
+      </div>
+    </header>
+  </div>
+  <%= yield %>
 </div>
-<%= yield %>
-
+<div class="footer">
+  <span>2013</span>
+  <a href="https://www.facebook.com/byorickq">Фейсбук</a>
+  <a href="http://www.behance.net/yuratan">Беханс</a>
+  <a href="http://www.pinterest.com/byorickq/">Пинтерест</a>
+</div>
 </body>
 </html>
