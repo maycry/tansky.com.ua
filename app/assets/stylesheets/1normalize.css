@@ -307,10 +307,13 @@ dd {
  */
 
 menu,
-ol,
 ul {
-    padding: 0 0 0 39px;
+    padding: 7px 0 15px 39px;
     list-style: none;
+}
+
+ol{
+    padding: 7px 0 15px 52px;
 }
 
 /**
