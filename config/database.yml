@@ -6,7 +6,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: tansky_db_development
+  database: development
   pool: 5
   timeout: 5000
   password:
@@ -17,7 +17,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: tansky_db_test
+  database: test
   pool: 5
   timeout: 5000
   password:
@@ -25,7 +25,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: tansky_db_production
+  database: production
   pool: 5
   timeout: 5000
   password:

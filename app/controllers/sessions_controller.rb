@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		salt = "$2a$10$tpM/96Pd5rHl0H9FNB01te";
-		hash = "$2a$10$tpM/96Pd5rHl0H9FNB01tegpSds22gYA6rrUv7wVfTwtO3tB0Lpc.";
+		salt = "$2a$10$r8y63ZWAKfy3DJxz5jJxxO";
+		hash = "$2a$10$r8y63ZWAKfy3DJxz5jJxxOmyZwhvQPzTYT5mJn8gZVqPzVu.j8/lq";
 		if hash == BCrypt::Engine.hash_secret(params[:password], salt);
 			session[:log_in] = "true"
 			redirect_to return_point, :notice =>"Logged in!"
