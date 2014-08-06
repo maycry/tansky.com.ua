@@ -12,6 +12,16 @@ class PostsController < ApplicationController
       end
   end
 
+  def drafts
+    @posts = Post.all
+  end
+
+  def toggle_active  
+    @post = Post.find(params[:id])  
+    @post.toggle!(:active)  
+    render nothing: true  
+  end  
+
   # GET /posts/1
   # GET /posts/1.json
   def show

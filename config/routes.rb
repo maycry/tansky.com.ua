@@ -1,6 +1,10 @@
 TanskyComUa::Application.routes.draw do
-  resources :posts
+  resources :posts do
+    get "toggle_active", on: :collection
+  end
+  
   resources :sessions
+  get "drafts", to: "posts#drafts"
   get "login" => "sessions#new", :as =>"login"
   get "logout" => "sessions#destroy", :as =>"logout"
   get 'tags/:tag', to: 'posts#index', as: :tag

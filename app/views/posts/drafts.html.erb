@@ -1,0 +1,13 @@
+<div class="wrapper content">
+    <article>
+      <table class="draft-posts">
+      <% @posts.each do |post| %>
+        <tr>
+          <td class="post_name">
+            <%= check_box_tag "active_post_#{post.id}",1 , post.active, data: { remote: true, url: url_for(action: :toggle_active, id: post.id)} %><%= link_to_unless_current post.title, post %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </article>
+</div>
