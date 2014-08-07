@@ -3,14 +3,25 @@ function ready() {
 		dataType: "script"
 		})
 
-	s = $("#post_body").val()
-	if (s != undefined) {
-		/*a = s.match(/!\(https:\/\/[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\)/gi);*/
-		a = s.match(/!\[[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\]\(https:\/\/[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\)/gi);
-		if(a != null){
-			a.map(function(item){
-				img=item.match(/https:\/\/[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]/gi);
-				$("#thumbs").append("<img width='70' src='"+ img +"'>")
+	function getMatches(string, regex, index) {
+    index || (index = 1); // default to the first capturing group
+    var matches = [];
+    var match;
+    while (match = regex.exec(string)) {
+        matches.push(match[index]);
+    }
+    return matches;
+	}
+
+	textareaText = $("#post_body").val()
+	if (textareaText != undefined) {
+		/*textareaImage = s.match(/!\(https:\/\/[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\)/gi);*/
+		/*textareaImage = s.match(/!\[[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\]\(https:\/\/[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\)/gi);*/
+		regex = /!\[.*\]\((.*)\)/gi
+		textareaImages = getMatches(textareaText, regex, 1);
+		if(textareaImages != null){
+			textareaImages.map(function(item){
+				$("#thumbs").append("<img width='70' src='"+ item +"'>")
 			});
 		}
 	};
