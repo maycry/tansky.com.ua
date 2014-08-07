@@ -15,9 +15,6 @@ function ready() {
 
 	textareaText = $("#post_body").val()
 	if (textareaText != undefined) {
-		/*textareaImage = s.match(/!\(https:\/\/[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\)/gi);*/
-		/*textareaImage = s.match(/!\[[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\]\(https:\/\/[-A-Z0-9+&@#\/%?=~_| !:,.;]*[A-Z0-9+&@#\/%=~_|]\)/gi);*/
-		regex = /!\[.*\]\((.*)\)/gi
 		textareaImages = getMatches(textareaText, regex, 1);
 		if(textareaImages != null){
 			textareaImages.map(function(item){
