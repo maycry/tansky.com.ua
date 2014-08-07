@@ -119,14 +119,7 @@ class PostsController < ApplicationController
     def authenticate(return_point = request.url)
       unless session[:log_in]
         flash[:error] = "You must be logged in to access this section"
-        set_return_point(return_point)
         redirect_to login_path
-      end
-    end
-
-    def set_return_point(path, overwrite = false)
-      if overwrite or session[:return_point].blank?
-        session[:return_point] = path
       end
     end
 end

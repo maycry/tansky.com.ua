@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 		hash = "$2a$10$r8y63ZWAKfy3DJxz5jJxxOmyZwhvQPzTYT5mJn8gZVqPzVu.j8/lq";
 		if hash == BCrypt::Engine.hash_secret(params[:password], salt);
 			session[:log_in] = "true"
-			redirect_to return_point, :notice =>"Logged in!"
+			redirect_to posts_url, :notice =>"Logged in!"
 		else
 			flash.now.alert = "Password invalid"
 			render "new"

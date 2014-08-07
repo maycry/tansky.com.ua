@@ -1,5 +1,5 @@
 module SessionsHelper
 	def logged
-		session[:log_in] ? session[:log_in] : nil
+		session[:log_in]
 	end
 end
