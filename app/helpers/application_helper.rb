@@ -9,7 +9,6 @@ module ApplicationHelper
 		doc = Nokogiri::HTML(html)
 		doc.css("img").wrap("<figure></figure>").each do |img|
 			img.after("<figcaption>#{img[:alt]}</figcaption>") unless img[:alt] ==  ""
-			img.parent.parent.replace img.parent.parent.inner_html
 		end
 		raw doc
 	end
