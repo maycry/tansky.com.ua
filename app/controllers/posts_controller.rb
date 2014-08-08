@@ -43,12 +43,13 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if params[:post][:image_attributes]
-        @post.save
+        @post.save if @post.created_at_changed?
         @name = params[:post][:image_attributes][:image][0].original_filename
         s3 = AWS::S3.new
-        bucket = s3.buckets["tansky.com.ua"]
-        obj = bucket.objects["blog/#{@post.id}/#{@name}"]
+        bucket = s3.buckets["blog.tansky.com.ua"]
+        obj = bucket.objects["#{@post.id}/#{@name}"]
         obj.write(params[:post][:image_attributes][:image][0].read, :acl => :public_read)
+        format.js
       else
         if @post.save
           format.html { redirect_to posts_url }
@@ -62,15 +63,13 @@ class PostsController < ApplicationController
   end
 
 
-
-
   def update
     respond_to do |format|
       if params[:post][:image_attributes]
         @name = params[:post][:image_attributes][:image][0].original_filename
         s3 = AWS::S3.new
-        bucket = s3.buckets["tansky.com.ua"]
-        obj = bucket.objects["blog/#{@post.id}/#{@name}"]
+        bucket = s3.buckets["blog.tansky.com.ua"]
+        obj = bucket.objects["#{@post.id}/#{@name}"]
         obj.write(params[:post][:image_attributes][:image][0].read, :acl => :public_read)
         format.js
       else
@@ -116,7 +115,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body, :tag_list)
     end
 
-    def authenticate(return_point = request.url)
+    def authenticate
       unless session[:log_in]
         flash[:error] = "You must be logged in to access this section"
         redirect_to login_path

@@ -14,6 +14,7 @@ function ready() {
 	}
 
 	textareaText = $("#post_body").val()
+  regex = /!\[.*\]\((.*)\)/gi
 	if (textareaText != undefined) {
 		textareaImages = getMatches(textareaText, regex, 1);
 		if(textareaImages != null){
