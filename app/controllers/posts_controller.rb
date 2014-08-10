@@ -38,26 +38,29 @@ class PostsController < ApplicationController
   end
   # POST /posts
   # POST /posts.json
+
+  def upload_image
+    if params[:post][:image_attributes]
+      @name = params[:post][:image_attributes][:image][0].original_filename
+      s3 = AWS::S3.new
+      bucket = s3.buckets["blog.tansky.com.ua"]
+      obj = bucket.objects["temp/#{@name}"]
+      obj.write(params[:post][:image_attributes][:image][0].read, :acl => :public_read)
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
-      if params[:post][:image_attributes]
-        @post.save if @post.created_at_changed?
-        @name = params[:post][:image_attributes][:image][0].original_filename
-        s3 = AWS::S3.new
-        bucket = s3.buckets["blog.tansky.com.ua"]
-        obj = bucket.objects["#{@post.id}/#{@name}"]
-        obj.write(params[:post][:image_attributes][:image][0].read, :acl => :public_read)
-        format.js
+      if @post.save
+        format.html { redirect_to posts_url }
+        format.json { render action: 'show', status: :created, location: @post }
       else
-        if @post.save
-          format.html { redirect_to posts_url }
-          format.json { render action: 'show', status: :created, location: @post }
-        else
-          format.html { render action: 'new' }
-          format.json { render json: @post.errors, status: :unprocessable_entity }
-        end
+        format.html { render action: 'new' }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -66,11 +69,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if params[:post][:image_attributes]
-        @name = params[:post][:image_attributes][:image][0].original_filename
-        s3 = AWS::S3.new
-        bucket = s3.buckets["blog.tansky.com.ua"]
-        obj = bucket.objects["#{@post.id}/#{@name}"]
-        obj.write(params[:post][:image_attributes][:image][0].read, :acl => :public_read)
+        upload_images
         format.js
       else
         if @post.update(post_params)
@@ -120,5 +119,13 @@ class PostsController < ApplicationController
         flash[:error] = "You must be logged in to access this section"
         redirect_to login_path
       end
+    end
+
+    def upload_images
+      @name = params[:post][:image_attributes][:image][0].original_filename
+      s3 = AWS::S3.new
+      bucket = s3.buckets["blog.tansky.com.ua"]
+      obj = bucket.objects["#{@post.id}/#{@name}"]
+      obj.write(params[:post][:image_attributes][:image][0].read, :acl => :public_read)
     end
 end

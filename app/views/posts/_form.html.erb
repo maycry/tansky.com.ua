@@ -18,8 +18,13 @@
     <%= f.text_area :body%>
   </div>
   <div class="field">
-    <%= f.file_field :image_attributes, :multiple => true, :name => "post[image_attributes][image][]" %>
+  <% if action_name == "new" %>
+  <%= file_field_tag :image_attributes, :multiple => true, :name => "post[image_attributes][image][]", :url =>"upload_image_path", :id => "image_attributes" %>
+  <% else %>
+  <%= f.file_field :image_attributes, :multiple => true, :name => "post[image_attributes][image][]"  %>
+  <% end %>
   </div>
+
   <div id="thumbs"></div>
   <div class="field tags">
     <%= f.label :tag_list, "Теги: " %>

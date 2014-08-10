@@ -1,7 +1,13 @@
 function ready() {
-	$('#post_image_attributes').fileupload({
-		dataType: "script"
+	$('#image_attributes').fileupload({
+		dataType: "script",
+    url: "/posts/upload_image"
 		})
+
+  $('#post_image_attributes').fileupload({
+    dataType: "script"
+    })
+
 
 	function getMatches(string, regex, index) {
     index || (index = 1); // default to the first capturing group
