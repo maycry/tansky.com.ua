@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 	before_save :add_title
   attr_accessor :image_attributes
-  after_create  :transfer_images, :update_image_links, if: :image_attributes
+  after_create  :transfer_images, :update_image_links
 	acts_as_taggable
 
 	default_scope { order("created_at desc") }

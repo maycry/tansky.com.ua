@@ -1,2 +1,5 @@
 $("#thumbs").append("<%= j render('photo', :folder => 'temp' %>")
-$("#post_body").append('\n<%= "![#{File.basename(@name, ".*")}](https://s3.amazonaws.com/blog.tansky.com.ua/#{@post.id}/#{@name})" %>\n')
+$('#post_body').val(function(_, val){
+    return val + '\n<%= "![#{File.basename(@name, ".*")}](https://s3.amazonaws.com/blog.tansky.com.ua/temp/#{@name})" %>\n'; 
+});
+
