@@ -42,6 +42,11 @@ gem 'russian', '~> 0.6.0'
 gem 'rails_12factor', group: :production
 gem 'nokogiri'
 
+group :development do
+  gem "better_errors"
+  gem 'binding_of_caller', '~> 0.7.2'
+end
+
 ruby "2.1.2"
 
 # Use ActiveModel has_secure_password
